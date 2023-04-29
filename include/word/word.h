@@ -12,14 +12,14 @@
 #include <vector>
 class word
 {
-  public:
-    word();
-    ~word();
-    static word *getInstance();
-    int money = -1;
-    std::vector<user> users;
+public:
+  word();
+  ~word();
+  static word* getInstance();
+  int money = -1;
+  std::vector<user> users;
 
-  private:
-    static word *instance;
+private:
+  static word* instance;
 };
 #endif

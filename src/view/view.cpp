@@ -9,8 +9,8 @@
 #include "word/word.h"
 view::view() {}
 view::~view() {}
-view *view::instance = nullptr;
-view *view::getInstance()
+view* view::instance = nullptr;
+view* view::getInstance()
 {
     if (instance == nullptr)
     {
@@ -20,14 +20,14 @@ view *view::getInstance()
 }
 void view::WritePlot()
 {
-    const char *plot[] = {"****************************************************"
+    const char* plot[] = { "****************************************************"
                           "************************************************",
                           "*                                                   "
                           "                                               *",
                           "****************************************************"
-                          "************************************************"};
+                          "************************************************" };
     int count = sizeof(plot) / sizeof(plot[0]);
-    out<const char *>('\n', count, plot);
+    out<const char*>('\n', count, plot);
 }
 template <typename type> void view::out(char IntermediateSymbol, int count, ...)
 {

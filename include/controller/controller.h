@@ -10,15 +10,15 @@
 #include <windows.h>
 class controller
 {
-  public:
-    controller();
-    ~controller();
-    static controller *getInstance();
-    void start();
-    void finish();
-    void init();
+public:
+  controller();
+  ~controller();
+  static controller* getInstance();
+  void start();
+  void finish();
+  void init();
 
-  private:
-    static controller *instance;
+private:
+  static controller* instance;
 };
 #endif

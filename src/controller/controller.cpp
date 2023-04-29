@@ -11,8 +11,8 @@
 #include <iostream>
 controller::controller() {}
 controller::~controller() {}
-controller *controller::instance = nullptr;
-controller *controller::getInstance()
+controller* controller::instance = nullptr;
+controller* controller::getInstance()
 {
     if (instance == nullptr)
     {
@@ -36,13 +36,13 @@ void controller::init()
     SetConsoleTitle("动物流浪记1.0.0");
     system("mode con cols=100 lines=30");
     SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE,
-                      GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) &
-                          ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
+        GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) &
+        ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
     if (word::getInstance()->users.empty())
     {
-        const char *str[] = {"请注册你的账号"};
+        const char* str[] = { "请注册你的账号" };
         int count = sizeof(str) / sizeof(str[0]);
-        view::getInstance()->out<const char *>('\n', count, str);
+        view::getInstance()->out<const char*>('\n', count, str);
     }
     view::getInstance()->WritePlot();
 }
