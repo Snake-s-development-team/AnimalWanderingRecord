@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:37:44
- * @LastEditors: fox
- * @LastEditTime: 2023-04-29 20:07:55
+ * @LastEditors: snake
+ * @LastEditTime: 2023-04-29 20:48:28
  * @FilePath: \AnimalWanderingRecord\src\controller\controller.cpp
  */
 #include "controller/controller.h"
@@ -25,6 +25,8 @@ void controller::start()
     controller::getInstance()->init();
     while (word::getInstance()->money >= 0)
     {
+        LogicalRefresh();
+        DisplayRefresh();
     }
     finish();
 }
@@ -42,5 +44,11 @@ void controller::init()
     {
         view::getInstance()->createUser();
     }
-    // view::getInstance()->WritePlot();
+    view::getInstance()->WritePlot();
+}
+void controller::LogicalRefresh() {
+
+}
+void controller::DisplayRefresh() {
+
 }
