@@ -8,8 +8,8 @@
 #include "word/word.h"
 word::word() {}
 word::~word() {}
-word *word::instance = nullptr;
-word *word::getInstance()
+word* word::instance = nullptr;
+word* word::getInstance()
 {
     if (instance == nullptr)
     {

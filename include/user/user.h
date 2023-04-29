@@ -10,13 +10,13 @@
 #include <string>
 class user
 {
-  public:
-    user();
-    user(std::string name, int money);
-    ~user();
-    std::string name;
-    int money;
+public:
+  user();
+  user(std::string name, int money);
+  ~user();
+  std::string name;
+  int money;
 
-  private:
+private:
 };
 #endif

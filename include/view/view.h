@@ -12,14 +12,14 @@
 #include <string>
 class view
 {
-  public:
-    view();
-    ~view();
-    static view *getInstance();
-    void WritePlot();
-    template <typename type> void out(char IntermediateSymbol, int count, ...);
+public:
+  view();
+  ~view();
+  static view* getInstance();
+  void WritePlot();
+  template <typename type> void out(char IntermediateSymbol, int count, ...);
 
-  private:
-    static view *instance;
+private:
+  static view* instance;
 };
 #endif
