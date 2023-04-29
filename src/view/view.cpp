@@ -34,6 +34,7 @@ void view::WritePlot()
 }
 void view::createUser()
 {
+    std::cout << "您似乎没有用户,创建一个吧" << std::endl;
     std::string username;
     std::string password;
     do {
@@ -44,13 +45,14 @@ void view::createUser()
         std::cout << "请输入你的密码:" << '\n';
         std::cin >> password;
     } while (isUserTrue(password));
+    system("cls");
     user test(username, password, 10000);
     word::getInstance()->users.push_back(test);
 }
 bool view::isUserTrue(std::string str) {
     for (int i = 0;i < str.length();i++)
     {
-        if (str[i] == ' ' || str[i] == '\\' || str[i] == '<' || str[i] == '>')return true;
+        if (str[i] == '\\' || str[i] == '<' || str[i] == '>')return true;
     }
     return false;
 }
