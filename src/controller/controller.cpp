@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:37:44
- * @LastEditors: snake
- * @LastEditTime: 2023-04-29 19:22:17
+ * @LastEditors: fox
+ * @LastEditTime: 2023-04-29 20:07:55
  * @FilePath: \AnimalWanderingRecord\src\controller\controller.cpp
  */
 #include "controller/controller.h"
@@ -40,9 +40,7 @@ void controller::init()
         ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
     if (word::getInstance()->users.empty())
     {
-        const char* str[] = { "请注册你的账号" };
-        int count = sizeof(str) / sizeof(str[0]);
-        view::getInstance()->out<const char*>('\n', count, str);
+        view::getInstance()->createUser();
     }
-    view::getInstance()->WritePlot();
+    // view::getInstance()->WritePlot();
 }

@@ -1,9 +1,9 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:45:08
- * @LastEditors: snake
- * @LastEditTime: 2023-04-28 16:51:54
- * @FilePath: \cppDemo\include\view\view.h
+ * @LastEditors: fox
+ * @LastEditTime: 2023-04-29 19:50:57
+ * @FilePath: \AnimalWanderingRecord\include\view\view.h
  */
 #ifndef VIEW_H
 #define VIEW_H
@@ -17,8 +17,8 @@ public:
   ~view();
   static view* getInstance();
   void WritePlot();
-  template <typename type> void out(char IntermediateSymbol, int count, ...);
-
+  void createUser();
+  bool isUserTrue(std::string str);
 private:
   static view* instance;
 };

@@ -1,9 +1,9 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
- * @LastEditors: snake
- * @LastEditTime: 2023-04-28 19:41:07
- * @FilePath: \cppDemo\src\view\view.cpp
+ * @LastEditors: fox
+ * @LastEditTime: 2023-04-29 20:15:39
+ * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
 #include "word/word.h"
@@ -27,16 +27,30 @@ void view::WritePlot()
                           "****************************************************"
                           "************************************************" };
     int count = sizeof(plot) / sizeof(plot[0]);
-    out<const char*>('\n', count, plot);
-}
-template <typename type> void view::out(char IntermediateSymbol, int count, ...)
-{
-    va_list v;
-    va_start(v, count);
-    va_arg(v, type);
-    for (int i = 1; i <= count; i++)
+    for (int i = 0;i < count;i++)
     {
-        std::cout << va_arg(v, type) << IntermediateSymbol;
+        std::cout << plot[i] << std::endl;
     }
-    va_end(v);
+}
+void view::createUser()
+{
+    std::string username;
+    std::string password;
+    do {
+        std::cout << "请输入你的名字" << '\n';
+        std::cin >> username;
+    } while (isUserTrue(username));
+    do {
+        std::cout << "请输入你的密码:" << '\n';
+        std::cin >> password;
+    } while (isUserTrue(password));
+    user test(username, password, 10000);
+    word::getInstance()->users.push_back(test);
+}
+bool view::isUserTrue(std::string str) {
+    for (int i = 0;i < str.length();i++)
+    {
+        if (str[i] == ' ' || str[i] == '\\' || str[i] == '<' || str[i] == '>')return true;
+    }
+    return false;
 }

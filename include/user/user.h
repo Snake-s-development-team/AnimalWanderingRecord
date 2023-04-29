@@ -12,9 +12,10 @@ class user
 {
 public:
   user();
-  user(std::string name, int money);
+  user(std::string usernmame, std::string password, int money);
   ~user();
   std::string name;
+  std::string password;
   int money;
 
 private:
