@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
- * @LastEditors: fox
- * @LastEditTime: 2023-04-29 20:15:39
+ * @LastEditors: snake
+ * @LastEditTime: 2023-04-29 20:53:58
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -38,11 +38,11 @@ void view::createUser()
     std::string username;
     std::string password;
     do {
-        std::cout << "请输入你的名字" << '\n';
+        std::cout << "请输入你的名字(不能含有  \\  ,  <  ,  >  ):" << '\n';
         std::cin >> username;
     } while (isUserTrue(username));
     do {
-        std::cout << "请输入你的密码:" << '\n';
+        std::cout << "请输入你的密码(不能含有  \\  ,  <  ,  >  ):" << '\n';
         std::cin >> password;
     } while (isUserTrue(password));
     system("cls");
