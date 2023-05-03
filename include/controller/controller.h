@@ -2,7 +2,7 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:36:04
  * @LastEditors: snake
- * @LastEditTime: 2023-04-29 20:43:43
+ * @LastEditTime: 2023-04-30 20:01:42
  * @FilePath: \AnimalWanderingRecord\include\controller\controller.h
  */
 #ifndef CONTROLLER_H
@@ -19,7 +19,6 @@ public:
   void init();
   void LogicalRefresh();
   void DisplayRefresh();
-
 private:
   static controller* instance;
 };

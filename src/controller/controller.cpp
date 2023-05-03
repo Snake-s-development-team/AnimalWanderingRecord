@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:37:44
- * @LastEditors: snake
- * @LastEditTime: 2023-04-29 20:48:28
+ * @LastEditors: snake qzrobot_snake@outlook.com
+ * @LastEditTime: 2023-05-03 13:59:44
  * @FilePath: \AnimalWanderingRecord\src\controller\controller.cpp
  */
 #include "controller/controller.h"
@@ -44,6 +44,7 @@ void controller::init()
     {
         view::getInstance()->createUser();
     }
+    view::getInstance()->UseUser();
     view::getInstance()->WritePlot();
 }
 void controller::LogicalRefresh() {

@@ -2,8 +2,8 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 19:43:47
  * @LastEditors: snake
- * @LastEditTime: 2023-04-28 19:51:43
- * @FilePath: \cppDemo\include\user\user.h
+ * @LastEditTime: 2023-04-30 15:26:24
+ * @FilePath: \AnimalWanderingRecord\include\user\user.h
  */
 #ifndef USER_H
 #define USER_H
