@@ -1,4 +1,11 @@
 {
+    "fileheader.customMade": {
+        "Author": "git config user.name && git config user.email",
+        "Date": "Do not edit",
+        "LastEditors": "git config user.name",
+        "LastEditTime": "Do not edit",
+        "FilePath": "Do not edit",
+    },
     "editor.fontLigatures": true,
     "editor.fontFamily": "Fira Code",
     "workbench.iconTheme": "material-icon-theme",
