@@ -2,7 +2,7 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
  * @LastEditors: snake qzrobot_snake@outlook.com
- * @LastEditTime: 2023-05-03 14:05:53
+ * @LastEditTime: 2023-05-06 15:46:56
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -47,7 +47,7 @@ void view::WritePlot()
         WriteStr(plot[i]);
     }
 }
-void view::WriteStr(std::string str)
+void view::WriteStr(std::string str, int speed)
 {
     for (int i = 0;i < str.length();i++)
     {
@@ -95,4 +95,28 @@ void view::UseUser() {
     word::getInstance()->current.password = word::getInstance()->users[choose - 1].password;
     word::getInstance()->current.money = word::getInstance()->users[choose - 1].money;
     system("cls");
+}
+void view::LoadMap()
+{
+    std::string map[] = {
+        "****************************************************************************************************",
+        "*..........................                                                                        *",
+        "*..........................                                                                        *",
+        "*....$$$$$$$$$$$$$$$$$$$$$$                                                                        *",
+        "*....$                    $                                                                        *",
+        "*....$                    $                                                                        *",
+        "*....$       乡银行       $                                                                        *",
+        "*....$                    $                                                                        *",
+        "*....$                    $                                                                        *",
+        "*....$$$$$$$$$   $$$$$$$$$$                                                                        *",
+        "*....        |   |                                                                                 *",
+        "*..........................                                                                        *",
+        "*..........................                                                                        *",
+        "****************************************************************************************************"
+    };
+    int count = sizeof(map) / sizeof(map[0]);
+    for (int i = 0;i < count;i++)
+    {
+        WriteStr(map[i], 5);
+    }
 }

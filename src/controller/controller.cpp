@@ -2,7 +2,7 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:37:44
  * @LastEditors: snake qzrobot_snake@outlook.com
- * @LastEditTime: 2023-05-03 13:59:44
+ * @LastEditTime: 2023-05-06 15:46:27
  * @FilePath: \AnimalWanderingRecord\src\controller\controller.cpp
  */
 #include "controller/controller.h"
@@ -27,6 +27,7 @@ void controller::start()
     {
         LogicalRefresh();
         DisplayRefresh();
+        system("pause");
     }
     finish();
 }
@@ -40,16 +41,16 @@ void controller::init()
     SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE,
         GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) &
         ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
-    if (word::getInstance()->users.empty())
-    {
-        view::getInstance()->createUser();
-    }
-    view::getInstance()->UseUser();
-    view::getInstance()->WritePlot();
+    // if (word::getInstance()->users.empty())
+    // {
+    //     view::getInstance()->createUser();
+    // }
+    // view::getInstance()->UseUser();
+    // view::getInstance()->WritePlot();
 }
 void controller::LogicalRefresh() {
 
 }
 void controller::DisplayRefresh() {
-
+    view::getInstance()->LoadMap();
 }

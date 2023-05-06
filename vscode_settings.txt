@@ -1,0 +1,12 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "workbench.colorTheme": "Monokai",
+    "cmake.configureOnOpen": true,
+    "editor.formatOnSave": true,
+    "C_Cpp.clang_format_style": "LLVM",
+    "C_Cpp.formatting": "vcFormat",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+}
