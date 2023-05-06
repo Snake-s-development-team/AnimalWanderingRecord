@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
- * @LastEditors: snake qzrobot_snake@outlook.com
- * @LastEditTime: 2023-05-06 15:46:56
+ * @LastEditors: snake
+ * @LastEditTime: 2023-05-06 16:13:17
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -70,8 +70,7 @@ void view::createUser()
         std::cin >> password;
     } while (isUserTrue(password));
     system("cls");
-    user test(username, password, 10000);
-    word::getInstance()->users.push_back(test);
+    word::getInstance()->users.push_back(user(username, password, 10000, 2010, 1, 1));
 }
 bool view::isUserTrue(std::string str) {
     for (int i = 0;i < str.length();i++)
@@ -88,12 +87,11 @@ void view::UseUser() {
     }
     int choose;
     std::cin >> choose;
+    word::getInstance()->current = word::getInstance()->users[choose - 1];
     std::stringstream test_name;
     for (int i = word::getInstance()->users[choose - 1].name.length();i < 8;i++)test_name << " ";
     test_name << word::getInstance()->users[choose - 1].name;
     word::getInstance()->current.name = test_name.str();
-    word::getInstance()->current.password = word::getInstance()->users[choose - 1].password;
-    word::getInstance()->current.money = word::getInstance()->users[choose - 1].money;
     system("cls");
 }
 void view::LoadMap()
@@ -119,4 +117,8 @@ void view::LoadMap()
     {
         WriteStr(map[i], 5);
     }
+}
+void view::outTime()
+{
+    std::cout << "当前是: " << word::getInstance()->current.year << "年" << word::getInstance()->current.month << "月" << word::getInstance()->current.day << "日" << std::endl;
 }
