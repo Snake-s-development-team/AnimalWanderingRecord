@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
- * @LastEditors: snake
- * @LastEditTime: 2023-05-06 16:33:07
+ * @LastEditors: fox
+ * @LastEditTime: 2023-05-06 16:57:14
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -125,18 +125,25 @@ void view::OutTime()
 }
 std::string view::JudgmentStatus()
 {
-    switch (word::getInstance()->current.HP)
+    if (word::getInstance()->current.HP == 100)
     {
-    case 100:
-        return "优秀";
-    case 80:
-        return "良好";
-    case 50:
-        return "去嗑个药吧";
-    case 30:
-        return "推荐你别打架了";
-    case 1:
-        return "岌岌可危";
+        std::cout << "优秀" << std::endl;
+    }
+    else if (word::getInstance()->current.HP >= 80)
+    {
+        std::cout << "良好" << std::endl;
+    }
+    else if (word::getInstance()->current.HP >= 50)
+    {
+        std::cout << "去磕个药吧" << std::endl;
+    }
+    else if (word::getInstance()->current.HP >= 30)
+    {
+        std::cout << "推荐你别打架了" << std::endl;
+    }
+    else if (word::getInstance()->current.HP >= 1)
+    {
+        std::cout << "岌岌可危" << std::endl;
     }
     return "";
 }
