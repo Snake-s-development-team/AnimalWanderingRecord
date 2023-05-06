@@ -2,7 +2,7 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
  * @LastEditors: snake
- * @LastEditTime: 2023-05-06 16:13:17
+ * @LastEditTime: 2023-05-06 16:33:07
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -56,7 +56,7 @@ void view::WriteStr(std::string str, int speed)
     }
     std::cout << std::endl;
 }
-void view::createUser()
+void view::CreateUser()
 {
     std::cout << "您似乎没有用户,创建一个吧" << std::endl;
     std::string username;
@@ -64,15 +64,15 @@ void view::createUser()
     do {
         std::cout << "请输入你的名字(不能含有  \\  ,  <  ,  >  ):" << '\n';
         std::cin >> username;
-    } while (isUserTrue(username));
+    } while (IsUserTrue(username));
     do {
         std::cout << "请输入你的密码(不能含有  \\  ,  <  ,  >  ):" << '\n';
         std::cin >> password;
-    } while (isUserTrue(password));
+    } while (IsUserTrue(password));
     system("cls");
-    word::getInstance()->users.push_back(user(username, password, 10000, 2010, 1, 1));
+    word::getInstance()->users.push_back(user(username, password, 10000, 2010, 1, 1, 100));
 }
-bool view::isUserTrue(std::string str) {
+bool view::IsUserTrue(std::string str) {
     for (int i = 0;i < str.length();i++)
     {
         if (str[i] == '\\' || str[i] == '<' || str[i] == '>')return true;
@@ -115,10 +115,28 @@ void view::LoadMap()
     int count = sizeof(map) / sizeof(map[0]);
     for (int i = 0;i < count;i++)
     {
-        WriteStr(map[i], 5);
+        std::cout << map[i] << std::endl;
+        Sleep(10);
     }
 }
-void view::outTime()
+void view::OutTime()
 {
-    std::cout << "当前是: " << word::getInstance()->current.year << "年" << word::getInstance()->current.month << "月" << word::getInstance()->current.day << "日" << std::endl;
+    std::cout << "当前是: " << word::getInstance()->current.year << "年" << word::getInstance()->current.month << "月" << word::getInstance()->current.day << "日" << " 你的血量: " << word::getInstance()->current.HP << " 你的状态: " << JudgmentStatus() << std::endl;
+}
+std::string view::JudgmentStatus()
+{
+    switch (word::getInstance()->current.HP)
+    {
+    case 100:
+        return "优秀";
+    case 80:
+        return "良好";
+    case 50:
+        return "去嗑个药吧";
+    case 30:
+        return "推荐你别打架了";
+    case 1:
+        return "岌岌可危";
+    }
+    return "";
 }

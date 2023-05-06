@@ -7,7 +7,7 @@
  */
 #include "user/user.h"
 user::user() {}
-user::user(std::string username, std::string password, int money, int year, int month, int day)
+user::user(std::string username, std::string password, int money, short year, short month, short day, short HP)
 {
     this->money = money;
     this->password = password;
@@ -15,5 +15,6 @@ user::user(std::string username, std::string password, int money, int year, int 
     this->day = day;
     this->month = month;
     this->year = year;
+    this->HP = HP;
 }
 user::~user() {}

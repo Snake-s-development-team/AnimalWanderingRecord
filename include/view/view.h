@@ -2,7 +2,7 @@
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:45:08
  * @LastEditors: snake
- * @LastEditTime: 2023-05-06 16:03:12
+ * @LastEditTime: 2023-05-06 16:28:49
  * @FilePath: \AnimalWanderingRecord\include\view\view.h
  */
 #ifndef VIEW_H
@@ -19,12 +19,13 @@ public:
   ~view();
   static view* getInstance();
   void WritePlot();
-  void createUser();
+  void CreateUser();
   void UseUser();
-  void WriteStr(std::string str,int speed=50);
-  bool isUserTrue(std::string str);
+  void WriteStr(std::string str, int speed = 50);
+  bool IsUserTrue(std::string str);
   void LoadMap();
-  void outTime();
+  void OutTime();
+  std::string JudgmentStatus();
 private:
   static view* instance;
 };
