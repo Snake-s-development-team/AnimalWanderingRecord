@@ -1,8 +1,8 @@
 /*
  * @Author: snake qzrobot_snake@outlook.com
  * @Date: 2023-04-28 15:46:28
- * @LastEditors: fox
- * @LastEditTime: 2023-05-06 16:57:14
+ * @LastEditors: snake
+ * @LastEditTime: 2023-05-07 10:04:33
  * @FilePath: \AnimalWanderingRecord\src\view\view.cpp
  */
 #include "view/view.h"
@@ -80,37 +80,32 @@ bool view::IsUserTrue(std::string str) {
     return false;
 }
 void view::UseUser() {
-    std::cout << "请选择你的用户:" << std::endl;
-    for (int i = 0;i < word::getInstance()->users.size();i++)
-    {
-        std::cout << "    " << i + 1 << ": " << word::getInstance()->users[i].name << std::endl;
-    }
-    int choose;
-    std::cin >> choose;
-    word::getInstance()->current = word::getInstance()->users[choose - 1];
+    int choose = Choose(word::getInstance()->users, word::getInstance()->users.size());
+    word::getInstance()->current = word::getInstance()->users[choose];
     std::stringstream test_name;
-    for (int i = word::getInstance()->users[choose - 1].name.length();i < 8;i++)test_name << " ";
-    test_name << word::getInstance()->users[choose - 1].name;
+    for (int i = word::getInstance()->users[choose].name.length();i < 8;i++)test_name << " ";
+    test_name << word::getInstance()->users[choose].name;
     word::getInstance()->current.name = test_name.str();
     system("cls");
 }
 void view::LoadMap()
 {
     std::string map[] = {
-        "****************************************************************************************************",
-        "*..........................                                                                        *",
-        "*..........................                                                                        *",
-        "*....$$$$$$$$$$$$$$$$$$$$$$                                                                        *",
-        "*....$                    $                                                                        *",
-        "*....$                    $                                                                        *",
-        "*....$       乡银行       $                                                                        *",
-        "*....$                    $                                                                        *",
-        "*....$                    $                                                                        *",
-        "*....$$$$$$$$$   $$$$$$$$$$                                                                        *",
-        "*....        |   |                                                                                 *",
-        "*..........................                                                                        *",
-        "*..........................                                                                        *",
-        "****************************************************************************************************"
+"****************************************************************************************************",
+"*..................................................................................................*",
+"*..................................................................................................*",
+"*....$$$$$$$$$$$$$$$$$$$$$$....                                                                  ..*",
+"*....$                    $....                                                                  ..*",
+"*....$                    $....                                                                  ..*",
+"*....$       乡银行       $....                                                                  ..*",
+"*....$                    $....                                                                  ..*",
+"*....$                    $....                                                                  ..*",
+"*....$$$$$$$$$   $$$$$$$$$$....                                                                  ..*",
+"*....        |   |         ....                                                                  ..*",
+"*                                                                                                  *",
+"*..................................................................................................*",
+"*..................................................................................................*",
+"****************************************************************************************************"
     };
     int count = sizeof(map) / sizeof(map[0]);
     for (int i = 0;i < count;i++)
@@ -121,7 +116,7 @@ void view::LoadMap()
 }
 void view::OutTime()
 {
-    std::cout << "当前是: " << word::getInstance()->current.year << "年" << word::getInstance()->current.month << "月" << word::getInstance()->current.day << "日" << " 你的血量: " << word::getInstance()->current.HP << " 你的状态: " << JudgmentStatus() << std::endl;
+    std::cout << "你好:" << word::getInstance()->current.name << " 当前是: " << word::getInstance()->current.year << "年" << word::getInstance()->current.month << "月" << word::getInstance()->current.day << "日" << " 你的血量: " << word::getInstance()->current.HP << " 你的状态: " << JudgmentStatus() << std::endl;
 }
 std::string view::JudgmentStatus()
 {
@@ -146,4 +141,72 @@ std::string view::JudgmentStatus()
         std::cout << "岌岌可危" << std::endl;
     }
     return "";
+}
+int view::Choose(std::string str[], int count)
+{
+    int choose = 0;
+    bool WhetherToContinueReading = true;
+    while (WhetherToContinueReading) {
+        std::cout << "请选择你的用户" << std::endl;
+        for (int i = 0;i < count;i++)
+        {
+            if (i == choose)SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);
+            std::cout << "    " << str[i] << std::endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE);
+        }
+        int ch = getch();
+        switch (ch)
+        {
+        case 72: {
+            choose--;
+            if (choose < 0)choose = count - 1;
+            break;
+        }
+        case 80: {
+            choose++;
+            if (choose > count - 1)choose = 0;
+            break;
+        }
+        case 13: {
+            WhetherToContinueReading = false;
+            break;
+        }
+        }
+        system("cls");
+    }
+    return choose;
+}
+int view::Choose(std::vector<user> str, int count)
+{
+    int choose = 0;
+    bool WhetherToContinueReading = true;
+    while (WhetherToContinueReading) {
+        std::cout << "请选择你的用户" << std::endl;
+        for (int i = 0;i < count;i++)
+        {
+            if (i == choose)SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);
+            std::cout << "    " << str[i].name << std::endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE);
+        }
+        int ch = getch();
+        switch (ch)
+        {
+        case 72: {
+            choose--;
+            if (choose < 0)choose = count - 1;
+            break;
+        }
+        case 80: {
+            choose++;
+            if (choose > count - 1)choose = 0;
+            break;
+        }
+        case 13: {
+            WhetherToContinueReading = false;
+            break;
+        }
+        }
+        system("cls");
+    }
+    return choose;
 }
